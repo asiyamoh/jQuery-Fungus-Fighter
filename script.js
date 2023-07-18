@@ -53,12 +53,39 @@ function onReady() {
 
 }
 
-// function render(){
-//     // update the text above the attack buttons
-//     $('.ap-text').text(attackAP + ' AP');
+function render(losePoints,costAp){
+    // update the text above the attack buttons
+    // $('.ap-text').text(attackAP + ' AP');
+    console.log('hey  Smarty!');
+
+    // reduce your attack points(AP)
+    //make the fungus lose hit points(HP)
+    fungusHP = fungusHP - losePoints;
+    attackAP = attackAP - costAp
+
+     //HP and AP can't be negative 
+     if(fungusHP <= 0 ){
+        fungusHP = 0;
+        $(".attacks").off('.button');
+        $('.freaky-fungus.walk').replaceWith($('.freaky-fungus.dead'));
+    }
+
+    if(attackAP <= 0 ){
+        attackAP = 0;
+        $(".attacks").off('.button');
+        $('.freaky-fungus.walk').replaceWith($('.freaky-fungus.jump'));
+    }
+
+     // update the text above the attack buttons
+     $('.ap-text').text(attackAP + ' AP');
+
+     // update the text above the fungus
+     $('.hp-text').text(fungusHP + ' HP');
 
 
-// }
+    console.log('fungusHP:', fungusHP);
+    console.log('attackAP:', attackAP);
+}
 
 // function humanAttack(){
 //     console.log('Good Job!');
@@ -70,150 +97,38 @@ function onReady() {
 
 function attackArcaneScepter(){
     console.log('Arc');
+
     let losePoints =  attacks[0].hpDamage;
     let costAp = attacks[0].apCost;
 
-    // reduce your attack points(AP)
-    //make the fungus lose hit points(HP)
-    fungusHP = fungusHP - losePoints;
-    attackAP = attackAP - costAp
-
-    //HP and AP can't be negative 
-    if(fungusHP < 0 ){
-        fungusHP = 0;
-    }
-
-    if(attackAP < 0 ){
-        attackAP = 0;
-    }
-
-    // update the text above the attack buttons
-    $('.ap-text').text(attackAP + ' AP');
-
-    // update the text above the fungus
-    $('.hp-text').text(fungusHP + ' HP');
-
-    if(fungusHP == 0){
-        $('.freaky-fungus.walk').replaceWith($('.dead'));
-    }
-
-    if(attackAP== 0){
-        $('.freaky-fungus.walk').replaceWith($('.jump'));
-    }
-
-    console.log('fungusHP:', fungusHP);
-    console.log('attackAP:', attackAP);
+    render(losePoints,costAp);
 }
 
 function attackEntangle(){
     console.log('Ent');
+
     let losePoints =  attacks[1].hpDamage;
     let costAp = attacks[1].apCost;
 
-    // reduce your attack points(AP)
-    //make the fungus lose hit points(HP)
-    fungusHP = fungusHP - losePoints;
-    attackAP = attackAP - costAp;
-
-    //HP and AP can't be negative 
-    if(fungusHP < 0 ){
-        fungusHP = 0;
-    }
-
-    if(attackAP < 0 ){
-        attackAP = 0;
-    }
-
-    // update the text above the attack buttons
-    $('.ap-text').text(attackAP + ' AP');
-
-    // update the text above the fungus
-    $('.hp-text').text(fungusHP + ' HP');
-
-    if(fungusHP == 0){
-        $('.freaky-fungus.walk').replaceWith($('.dead'));
-    }
-
-    if(attackAP== 0){
-        $('.freaky-fungus.walk').replaceWith($('.jump'));
-    }
-
-    console.log('fungusHP:', fungusHP);
-    console.log('attackAP:', attackAP);
+    render(losePoints,costAp);
 }
 
 function attackDragonBlade(){
     console.log('Drange');
+
     let losePoints =  attacks[2].hpDamage;
     let costAp = attacks[2].apCost;
 
-    // reduce your attack points(AP)
-    //make the fungus lose hit points(HP)
-    fungusHP = fungusHP - losePoints;
-    attackAP = attackAP - costAp;
-
-    //HP and AP can't be negative 
-    if(fungusHP < 0 ){
-        fungusHP = 0;
-    }
-
-    if(attackAP < 0 ){
-        attackAP = 0;
-    }
-
-    // update the text above the attack buttons
-    $('.ap-text').text(attackAP + ' AP');
-
-    // update the text above the fungus
-    $('.hp-text').text(fungusHP + ' HP');
-
-    if(fungusHP == 0){
-        $('.freaky-fungus.walk').replaceWith($('.dead'));
-    }
-
-    if(attackAP== 0){
-        $('.freaky-fungus.walk').replaceWith($('.jump'));
-    }
-    
-    console.log('fungusHP:', fungusHP);
-    console.log('attackAP:', attackAP);
+    render(losePoints,costAp);
 }
 
 function attackStarFire(){
     console.log('Star');
+
     let losePoints =  attacks[3].hpDamage;
     let costAp = attacks[3].apCost;
 
-    // reduce your attack points(AP)
-    //make the fungus lose hit points(HP)
-    fungusHP = fungusHP - losePoints;
-    attackAP = attackAP - costAp;
-
-    //HP and AP can't be negative 
-    if(fungusHP < 0 ){
-        fungusHP = 0;
-    }
-
-    if(attackAP < 0 ){
-        attackAP = 0;
-    }
-
-    // update the text above the attack buttons
-    $('.ap-text').text(attackAP + ' AP');
-
-    // update the text above the fungus
-    $('.hp-text').text(fungusHP + ' HP');
-
-    if(fungusHP == 0){
-        $('.freaky-fungus.walk').replaceWith($('.dead'));
-    }
-
-    if(attackAP== 0){
-        $('.freaky-fungus.walk').replaceWith($('.jump'));
-    }
-
-    console.log('fungusHP:', fungusHP);
-    console.log('attackAP:', attackAP);
+    render(losePoints,costAp);
 }
 
 
