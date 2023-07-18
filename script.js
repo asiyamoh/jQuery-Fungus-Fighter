@@ -8,11 +8,40 @@ $(document).ready(onReady);
 let fungusHP = 100;
 let attackAP = 100;
 
+let attacks = [
+   {
+    name:'Arcane Scepter',
+    apCost:12,
+    hpDamage:14
+   },
+   {
+    name:'Entangle',
+    apCost:23,
+    hpDamage:9
+   },
+   {
+    name:'Dragon Blade',
+    apCost:38,
+    hpDamage:47
+   },
+   {
+    name:'Star Fire',
+    apCost:33,
+    hpDamage:25
+   },
+
+
+]
+
 function onReady() {
     
     // Make sure you check the index.html file! 
     // There are lots of buttons and things ready for you to hook into here!
-    $('.attacks').on('click', humanAttack);
+    // $('.attacks').on('click', humanAttack);
+    $('.attack-btn.arcane-scepter').on('click', attackArcaneScepter);
+    $('.attack-btn.entangle').on('click', attackEntangle);
+    $('.attack-btn.dragon-blade').on('click', attackDragonBlade);
+    $('.attack-btn.star-fire').on('click', attackStarFire);
     
     
     // 🧠 Remember
@@ -21,8 +50,92 @@ function onReady() {
     // - Rendered to the DOM
 }
 
-function humanAttack(){
-    console.log('Good Job!');
-    let losePoints = 
+// function humanAttack(){
+//     console.log('Good Job!');
+//     let losePoints=0;
+//     losePoints  += attackshpDamage();
+//     console.log(attacks.hpDamage());
 
+// }
+
+function attackArcaneScepter(){
+    console.log('Arc');
+    let losePoints =  attacks[0].hpDamage;
+    let costAp = attacks[0].apCost;
+
+    fungusHP = fungusHP - losePoints;
+    attackAP = attackAP - costAp
+
+    if(fungusHP < 0 ){
+        fungusHP = 0;
+    }
+
+    if(attackAP < 0 ){
+        attackAP = 0;
+    }
+
+    console.log('fungusHP:', fungusHP);
+    console.log('attackAP:', attackAP);
 }
+
+function attackEntangle(){
+    console.log('Ent');
+    let losePoints =  attacks[1].hpDamage;
+    let costAp = attacks[1].apCost;
+
+    fungusHP = fungusHP - losePoints;
+    attackAP = attackAP - costAp;
+
+    if(fungusHP < 0 ){
+        fungusHP = 0;
+    }
+
+    if(attackAP < 0 ){
+        attackAP = 0;
+    }
+
+    console.log('fungusHP:', fungusHP);
+    console.log('attackAP:', attackAP);
+}
+
+function attackDragonBlade(){
+    console.log('Drange');
+    let losePoints =  attacks[2].hpDamage;
+    let costAp = attacks[2].apCost;
+
+    fungusHP = fungusHP - losePoints;
+    attackAP = attackAP - costAp;
+
+    if(fungusHP < 0 ){
+        fungusHP = 0;
+    }
+
+    if(attackAP < 0 ){
+        attackAP = 0;
+    }
+    
+
+    console.log('fungusHP:', fungusHP);
+    console.log('attackAP:', attackAP);
+}
+
+function attackStarFire(){
+    console.log('Star');
+    let losePoints =  attacks[3].hpDamage;
+    let costAp = attacks[3].apCost;
+
+    fungusHP = fungusHP - losePoints;
+    attackAP = attackAP - costAp;
+
+    if(fungusHP < 0 ){
+        fungusHP = 0;
+    }
+
+    if(attackAP < 0 ){
+        attackAP = 0;
+    }
+
+    console.log('fungusHP:', fungusHP);
+    console.log('attackAP:', attackAP);
+}
+
