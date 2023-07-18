@@ -42,13 +42,23 @@ function onReady() {
     $('.attack-btn.entangle').on('click', attackEntangle);
     $('.attack-btn.dragon-blade').on('click', attackDragonBlade);
     $('.attack-btn.star-fire').on('click', attackStarFire);
-    
+
+   
+
     
     // 🧠 Remember
     // - Handle events that ->
     // - Updates state which is ->
     // - Rendered to the DOM
+
 }
+
+// function render(){
+//     // update the text above the attack buttons
+//     $('.ap-text').text(attackAP + ' AP');
+
+
+// }
 
 // function humanAttack(){
 //     console.log('Good Job!');
@@ -63,15 +73,32 @@ function attackArcaneScepter(){
     let losePoints =  attacks[0].hpDamage;
     let costAp = attacks[0].apCost;
 
+    // reduce your attack points(AP)
+    //make the fungus lose hit points(HP)
     fungusHP = fungusHP - losePoints;
     attackAP = attackAP - costAp
 
+    //HP and AP can't be negative 
     if(fungusHP < 0 ){
         fungusHP = 0;
     }
 
     if(attackAP < 0 ){
         attackAP = 0;
+    }
+
+    // update the text above the attack buttons
+    $('.ap-text').text(attackAP + ' AP');
+
+    // update the text above the fungus
+    $('.hp-text').text(fungusHP + ' HP');
+
+    if(fungusHP == 0){
+        $('.freaky-fungus.walk').replaceWith($('.dead'));
+    }
+
+    if(attackAP== 0){
+        $('.freaky-fungus.walk').replaceWith($('.jump'));
     }
 
     console.log('fungusHP:', fungusHP);
@@ -83,15 +110,32 @@ function attackEntangle(){
     let losePoints =  attacks[1].hpDamage;
     let costAp = attacks[1].apCost;
 
+    // reduce your attack points(AP)
+    //make the fungus lose hit points(HP)
     fungusHP = fungusHP - losePoints;
     attackAP = attackAP - costAp;
 
+    //HP and AP can't be negative 
     if(fungusHP < 0 ){
         fungusHP = 0;
     }
 
     if(attackAP < 0 ){
         attackAP = 0;
+    }
+
+    // update the text above the attack buttons
+    $('.ap-text').text(attackAP + ' AP');
+
+    // update the text above the fungus
+    $('.hp-text').text(fungusHP + ' HP');
+
+    if(fungusHP == 0){
+        $('.freaky-fungus.walk').replaceWith($('.dead'));
+    }
+
+    if(attackAP== 0){
+        $('.freaky-fungus.walk').replaceWith($('.jump'));
     }
 
     console.log('fungusHP:', fungusHP);
@@ -103,9 +147,12 @@ function attackDragonBlade(){
     let losePoints =  attacks[2].hpDamage;
     let costAp = attacks[2].apCost;
 
+    // reduce your attack points(AP)
+    //make the fungus lose hit points(HP)
     fungusHP = fungusHP - losePoints;
     attackAP = attackAP - costAp;
 
+    //HP and AP can't be negative 
     if(fungusHP < 0 ){
         fungusHP = 0;
     }
@@ -113,8 +160,21 @@ function attackDragonBlade(){
     if(attackAP < 0 ){
         attackAP = 0;
     }
-    
 
+    // update the text above the attack buttons
+    $('.ap-text').text(attackAP + ' AP');
+
+    // update the text above the fungus
+    $('.hp-text').text(fungusHP + ' HP');
+
+    if(fungusHP == 0){
+        $('.freaky-fungus.walk').replaceWith($('.dead'));
+    }
+
+    if(attackAP== 0){
+        $('.freaky-fungus.walk').replaceWith($('.jump'));
+    }
+    
     console.log('fungusHP:', fungusHP);
     console.log('attackAP:', attackAP);
 }
@@ -124,9 +184,12 @@ function attackStarFire(){
     let losePoints =  attacks[3].hpDamage;
     let costAp = attacks[3].apCost;
 
+    // reduce your attack points(AP)
+    //make the fungus lose hit points(HP)
     fungusHP = fungusHP - losePoints;
     attackAP = attackAP - costAp;
 
+    //HP and AP can't be negative 
     if(fungusHP < 0 ){
         fungusHP = 0;
     }
@@ -135,7 +198,22 @@ function attackStarFire(){
         attackAP = 0;
     }
 
+    // update the text above the attack buttons
+    $('.ap-text').text(attackAP + ' AP');
+
+    // update the text above the fungus
+    $('.hp-text').text(fungusHP + ' HP');
+
+    if(fungusHP == 0){
+        $('.freaky-fungus.walk').replaceWith($('.dead'));
+    }
+
+    if(attackAP== 0){
+        $('.freaky-fungus.walk').replaceWith($('.jump'));
+    }
+
     console.log('fungusHP:', fungusHP);
     console.log('attackAP:', attackAP);
 }
+
 
